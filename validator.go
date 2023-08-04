@@ -12,12 +12,13 @@ func New() (*validator.Validate, error) {
 
 func registerValidation(validate *validator.Validate) error {
 	register := map[string]validator.Func{
-		"chinese":           ContainsOnlyChinese,
-		"id_card":           IsIdCard,
-		"id_card_15":        IsIdCardWith15Len,
-		"mobile":            IsMobile,
-		"password":          IsStrongPassword,
-		"starts_with_alpha": StartsWithAlpha,
+		"chinese":    ContainsOnlyChinese,
+		"id_card":    IsIdCard,
+		"id_card_15": IsIdCardWith15Len,
+		"mobile":     IsMobile,
+		"password":   IsStrongPassword,
+		"password_with_lower_upper_digit_special": IsVeryStrongPassword,
+		"starts_with_alpha":                       StartsWithAlpha,
 	}
 
 	for tag, fun := range register {
